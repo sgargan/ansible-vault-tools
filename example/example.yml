@@ -1,0 +1,8 @@
+- hosts: localhost
+  connection: local
+
+  vars_files:
+    - vaults/prod_keystore_vault
+
+  tasks:
+    - {include: includes/base64_to_file.yml, base64_data: '{{prod_keystore}}', dest: /tmp/keystore }
